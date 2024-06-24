@@ -1,0 +1,13 @@
+tailwind.config.mjs
+astro.config.mjs
+node_modules/
+
+**/*md
+**/*json
+
+.idea
+vitest.config.ts
+vite.config.ts
+setupTests.ts
+.eslintrc
+.prettierrc
