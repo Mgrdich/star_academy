@@ -9,7 +9,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint . --ext ts,tsx,astro --report-unused-disable-directives --max-warnings 0",
-    "lint:fix": "eslint --fix . --ext ts,tsx,astro",
+    "lint:fix": "eslint --fix . --ext ts,astro",
     "prettier": "prettier . --check",
     "prettier:fix": "prettier . --write",
     "format": "pnpm prettier:fix && pnpm lint:fix"
@@ -32,5 +32,9 @@
     "eslint-plugin-tailwindcss": "3.17.4",
     "prettier": "3.3.2",
     "prettier-plugin-astro": "0.14.0"
+  },
+  "engines": {
+    "node": "18.17.1",
+    "pnpm": "9.1.2"
   }
 }
