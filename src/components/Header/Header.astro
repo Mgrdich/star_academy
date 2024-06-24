@@ -1,3 +1,7 @@
+---
+import HeaderElement from "./HeaderElement.astro";
+---
+
 <header
   x-data="{navbarOpen: false}"
   class="sticky left-0 top-0 z-50 w-full bg-white"
@@ -28,41 +32,18 @@
             x-transition=""
             :class="!navbarOpen && 'hidden'"
             id="navbarCollapse"
-            class="absolute right-4 top-full w-full max-w-[350px] rounded-lg bg-white px-6 py-5 shadow transition-all lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:px-0 lg:shadow-none xl:ml-11"
+            class="absolute right-4 top-full w-full max-w-[350px]
+            rounded-lg bg-white px-6 py-5 shadow transition-all lg:static
+            lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:px-0
+            lg:shadow-none xl:ml-11"
           >
             <ul class="block lg:flex">
-              <li>
-                <a
-                  href="#home"
-                  class="flex py-2 text-base font-medium text-black hover:text-primary lg:ml-10 lg:inline-flex"
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#features"
-                  class="flex py-2 text-base font-medium text-black hover:text-primary lg:ml-10 lg:inline-flex"
-                >
-                  Features
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#testimonials"
-                  class="flex py-2 text-base font-medium text-black hover:text-primary lg:ml-10 lg:inline-flex"
-                >
-                  Testimonials
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#getstarted"
-                  class="flex py-2 text-base font-medium text-black hover:text-primary lg:ml-10 lg:inline-flex"
-                >
-                  Get started
-                </a>
-              </li>
+              <HeaderElement href="#home">Home</HeaderElement>
+              <HeaderElement href="#fees">Fees</HeaderElement>
+              <HeaderElement href="#team">Team</HeaderElement>
+              <HeaderElement href="#register">Register</HeaderElement>
+              <HeaderElement href="#schedule">Schedule</HeaderElement>
+              <HeaderElement href="#contact">Contact</HeaderElement>
             </ul>
           </nav>
         </div>

@@ -1,11 +1,29 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
+import Header from "../components/Header/Header.astro";
+import Home from "../components/Home.astro";
+import Fees from "../components/Fees.astro";
+import Team from "../components/Team.astro";
+import Footer from "../components/Footer.astro";
+import Contact from "../components/Contact.astro";
+import Schedule from "../components/Schedule.astro";
+import Register from "../components/Register.astro";
 ---
 
 <Layout title="Star Academy">
-  <main>
-    <Header />
-    <div class="text-center text-4xl">Star Academy</div>
-  </main>
+  <Header />
+  <Home />
+  <Fees />
+  <Team />
+  <Schedule />
+  <Register />
+  <Contact />
+  <Footer />
 </Layout>
+
+<style is:global>
+  @import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap");
+  body {
+    font-family: "Exo 2", sans-serif;
+  }
+</style>
