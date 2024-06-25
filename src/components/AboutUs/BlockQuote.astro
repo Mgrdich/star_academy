@@ -1,0 +1,30 @@
+---
+import BlockQuoteIcon from "./BlockQuoteIcon.astro";
+---
+
+<figure class="mx-auto max-w-screen-md text-center">
+  <BlockQuoteIcon />
+  <blockquote>
+    <p class="text-2xl font-medium italic">
+      The greatest gifts we can give our children are the roots of
+      responsibility and the wings of independence.
+    </p>
+  </blockquote>
+  <figcaption
+    class="mt-6 flex items-center justify-center space-x-3 rtl:space-x-reverse"
+  >
+    <img
+      class="size-14 rounded-full object-cover"
+      src="/maria_montessori.jpg"
+      alt="profile picture"
+    />
+    <div
+      class="flex items-center divide-x-2 divide-gray-500 rtl:divide-x-reverse"
+    >
+      <cite class="pe-3 font-medium text-gray-900">Maria Montessori</cite>
+      <cite class="ps-3 text-sm text-gray-500 dark:text-gray-400">
+        Italian physician and educator
+      </cite>
+    </div>
+  </figcaption>
+</figure>

@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors')
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
@@ -13,12 +15,14 @@ export default {
       xl: "1280px",
     },
     colors: {
+      ...colors,
       transparent: "transparent",
       current: "currentColor",
       white: "#ffffff",
       black: "#08111F",
-      primary: "#4F46E5",
-      secondary: "#ea47ed",
+      primary: "#A8CBEB",
+      secondary: "#C05D59",
+      tertiary:"#FEF4C7"
     },
     extend: {},
   },
