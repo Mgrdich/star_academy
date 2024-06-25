@@ -49,10 +49,8 @@ const headerItems = [
           >
             <ul class="block lg:flex">
               {
-                headerItems.map((item, index) => (
-                  <HeaderElement key={index} href={item.href}>
-                    {item.label}
-                  </HeaderElement>
+                headerItems.map((item) => (
+                  <HeaderElement href={item.href}>{item.label}</HeaderElement>
                 ))
               }
             </ul>
