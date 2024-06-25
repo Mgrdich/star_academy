@@ -20,8 +20,8 @@ export default {
         black: "#08111F",
         primary: "#A8CBEB",
         secondary: "#C05D59",
-        tertiary:"#FEF4C7"
-      }
+        tertiary: "#FEF4C7",
+      },
     },
   },
   plugins: [],
