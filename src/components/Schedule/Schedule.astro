@@ -1,17 +1,16 @@
 ---
 import ScheduleItem from "./ScheduleItem.astro";
-import ArrivalIcon from "./ArrivalIcon.astro";
-import ExerciseIcon from "./ExerciseIcon.astro";
-import CircleTimeIcon from "./CircleTimeIcon.astro";
-import AcademicLearningActivitiesArtIcon from "./AcademicLearningActivitiesArtIcon.astro";
-import MorningSnackIcon from "./MorningSnackIcon.astro";
-import OutsidePlayIcon from "./OutsidePlayIcon.astro";
-import LunchIcon from "./LunchIcon.astro";
-import NapIcon from "./NapIcon.astro";
-import FreePlayIcon from "./FreePlayIcon.astro";
-import AfternoonSnackIcon from "./AfternoonSnackIcon.astro";
-import AfternoonCircleIcon from "./AfternoonCircleIcon.astro";
-import FreeActivitiesIcon from "./FreeActivitiesIcon.astro";
+import ArrivalIcon from "./icons/ArrivalIcon.astro";
+import ExerciseIcon from "./icons/ExerciseIcon.astro";
+import CircleTimeIcon from "./icons/CircleTimeIcon.astro";
+import AcademicLearningActivitiesArtIcon from "./icons/AcademicLearningActivitiesArtIcon.astro";
+import SnackIcon from "./icons/SnackIcon.astro";
+import OutsidePlayIcon from "./icons/OutsidePlayIcon.astro";
+import LunchIcon from "./icons/LunchIcon.astro";
+import NapIcon from "./icons/NapIcon.astro";
+import FreePlayIcon from "./icons/FreePlayIcon.astro";
+import AfternoonCircleIcon from "./icons/AfternoonCircleIcon.astro";
+import FreeActivitiesIcon from "./icons/FreeActivitiesIcon.astro";
 
 const scheduleItems = [
   { id: "arrival", label: "Arrival", Icon: ArrivalIcon },
@@ -22,18 +21,17 @@ const scheduleItems = [
     label: "Academic Learning activities / Art",
     Icon: AcademicLearningActivitiesArtIcon,
   },
-  { id: "morning_snack", label: "Morning snack", Icon: MorningSnackIcon },
+  { id: "morning_snack", label: "Morning snack", Icon: SnackIcon },
   { id: "outside_play", label: "Outside Play", Icon: OutsidePlayIcon },
   { id: "lunch", label: "Lunch", Icon: LunchIcon },
   { id: "nap", label: "Nap", Icon: NapIcon },
   { id: "free_play", label: "Free play", Icon: FreePlayIcon },
-  { id: "afternoon_snack", label: "Afternoon Snack", Icon: AfternoonSnackIcon },
+  { id: "afternoon_snack", label: "Afternoon Snack", Icon: SnackIcon },
   {
     id: "afternoon_circle",
     label: "Afternoon circle",
     Icon: AfternoonCircleIcon,
   },
-  { id: "outside_play", label: "Outside play", Icon: OutsidePlayIcon },
   { id: "free_activities", label: "Free Activities", Icon: FreeActivitiesIcon },
 ] as const;
 ---
@@ -57,7 +55,7 @@ const scheduleItems = [
             Academy of Montessori is closed for two weeks for summer break .
             Also we will be taking 3 Professional Development Days. Children
             must not arrive at the school before 7:25 a.m and must be picked up
-            no later than 5 ;30 pm.
+            no later than 5:30 pm.
           </p>
         </div>
       </div>
