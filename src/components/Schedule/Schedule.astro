@@ -1,0 +1,73 @@
+---
+import ScheduleItem from "./ScheduleItem.astro";
+import ArrivalIcon from "./icons/ArrivalIcon.astro";
+import ExerciseIcon from "./icons/ExerciseIcon.astro";
+import CircleTimeIcon from "./icons/CircleTimeIcon.astro";
+import AcademicLearningActivitiesArtIcon from "./icons/AcademicLearningActivitiesArtIcon.astro";
+import SnackIcon from "./icons/SnackIcon.astro";
+import OutsidePlayIcon from "./icons/OutsidePlayIcon.astro";
+import LunchIcon from "./icons/LunchIcon.astro";
+import NapIcon from "./icons/NapIcon.astro";
+import FreePlayIcon from "./icons/FreePlayIcon.astro";
+import AfternoonCircleIcon from "./icons/AfternoonCircleIcon.astro";
+import FreeActivitiesIcon from "./icons/FreeActivitiesIcon.astro";
+
+const scheduleItems = [
+  { id: "arrival", label: "Arrival", Icon: ArrivalIcon },
+  { id: "exercise", label: "Exercise", Icon: ExerciseIcon },
+  { id: "circle_time", label: "Circle time", Icon: CircleTimeIcon },
+  {
+    id: "academic_learning_activities_art",
+    label: "Academic Learning activities / Art",
+    Icon: AcademicLearningActivitiesArtIcon,
+  },
+  { id: "morning_snack", label: "Morning snack", Icon: SnackIcon },
+  { id: "outside_play", label: "Outside Play", Icon: OutsidePlayIcon },
+  { id: "lunch", label: "Lunch", Icon: LunchIcon },
+  { id: "nap", label: "Nap", Icon: NapIcon },
+  { id: "free_play", label: "Free play", Icon: FreePlayIcon },
+  { id: "afternoon_snack", label: "Afternoon Snack", Icon: SnackIcon },
+  {
+    id: "afternoon_circle",
+    label: "Afternoon circle",
+    Icon: AfternoonCircleIcon,
+  },
+  { id: "free_activities", label: "Free Activities", Icon: FreeActivitiesIcon },
+] as const;
+---
+
+<section id="schedule" class="pb-12 pt-20 lg:pb-[90px] lg:pt-[120px]">
+  <div class="container mx-auto">
+    <div class="-mx-4 flex flex-wrap">
+      <div class="w-full px-4">
+        <div class="mx-auto mb-12 max-w-[510px] text-center lg:mb-20">
+          <span class="mb-2 block text-lg font-semibold text-primary">
+            Explore Our Schedule
+          </span>
+          <h2
+            class="mb-3 text-3xl font-bold leading-[1.2] text-secondary sm:text-4xl md:text-[40px]"
+          >
+            Our Schedule
+          </h2>
+          <p class="text-lg">
+            Star Academy of Montessori is open all year round except for all
+            statutory holidays. Monday to Friday from 7:30 a.m to 5:30 p.m. Star
+            Academy of Montessori is closed for two weeks for summer break .
+            Also we will be taking 3 Professional Development Days. Children
+            must not arrive at the school before 7:25 a.m and must be picked up
+            no later than 5:30 pm.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="-mx-4 flex flex-wrap">
+      {
+        scheduleItems.map((item) => (
+          <ScheduleItem title={item.label}>
+            {item.Icon && <item.Icon />}
+          </ScheduleItem>
+        ))
+      }
+    </div>
+  </div>
+</section>

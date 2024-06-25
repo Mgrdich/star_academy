@@ -1,5 +1,15 @@
 ---
 import HeaderElement from "./HeaderElement.astro";
+
+const headerItems = [
+  { href: "#home", label: "Home" },
+  { href: "#about_us", label: "About Us" },
+  { href: "#schedule", label: "Schedule" },
+  { href: "#fees", label: "Fees" },
+  { href: "#team", label: "Team" },
+  { href: "#register", label: "Register" },
+  { href: "#contact", label: "Contact" },
+] as const;
 ---
 
 <header
@@ -38,13 +48,11 @@ import HeaderElement from "./HeaderElement.astro";
             lg:shadow-none xl:ml-11"
           >
             <ul class="block lg:flex">
-              <HeaderElement href="#home">Home</HeaderElement>
-              <HeaderElement href="#bout_us">About Us</HeaderElement>
-              <HeaderElement href="#schedule">Schedule</HeaderElement>
-              <HeaderElement href="#fees">Fees</HeaderElement>
-              <HeaderElement href="#team">Team</HeaderElement>
-              <HeaderElement href="#register">Register</HeaderElement>
-              <HeaderElement href="#contact">Contact</HeaderElement>
+              {
+                headerItems.map((item) => (
+                  <HeaderElement href={item.href}>{item.label}</HeaderElement>
+                ))
+              }
             </ul>
           </nav>
         </div>
