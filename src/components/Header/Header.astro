@@ -1,14 +1,15 @@
 ---
 import HeaderElement from "./HeaderElement.astro";
+import { IDS } from "../helpers/constants";
 
 const headerItems = [
-  { href: "#home", label: "Home" },
-  { href: "#about_us", label: "About Us" },
-  { href: "#schedule", label: "Schedule" },
-  { href: "#fees", label: "Fees" },
-  { href: "#team", label: "Team" },
-  { href: "#register", label: "Register" },
-  { href: "#contact", label: "Contact" },
+  { href: `#${IDS.home}`, label: "Home" },
+  { href: `#${IDS.about_us}`, label: "About Us" },
+  { href: `#${IDS.schedule}`, label: "Schedule" },
+  { href: `#${IDS.fees}`, label: "Fees" },
+  { href: `#${IDS.team}`, label: "Team" },
+  { href: `#${IDS.register}`, label: "Register" },
+  { href: `#${IDS.contact}`, label: "Contact" },
 ] as const;
 ---
 
