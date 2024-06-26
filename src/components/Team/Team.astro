@@ -1,0 +1,66 @@
+---
+import { Icon } from "astro-icon/components";
+
+const team = [
+  {
+    id: "1",
+    name: "Ms. Mari Minasyan",
+    image: "maria_montessori.jpg",
+    text:
+      "Mari Minasyan will be the licensee . She has over 27 years experience working with children and in the childcare profession. She is Early Childhood Educator Certified, as well as having Special Needs and InfantToddler Certifications, in addition to her Montessori Diploma. Mari is also an instructor at Sprott Shaw College teaching basic Early Childhood Education.\n" +
+      "Mari Minasyan is an active member of the Armenian Relief Society. She also volunteers her time in the Armenian church, teaching the language to young children and assisting many newcomer families sponsored through the Armenian church. Mari is fluent in English, Arabic, Armenian, Turkish.\n" +
+      "Mari was extensively involved in designing, furnishing, implementing policies and regulations for the facility at Rainbow’s Nest Child Care. Ms. Minasyan is\n" +
+      "quite adept at center Management, program planning, staffing schedules, administrative duties, ensuring the childcare facility adheres to licensing Regulations.",
+  },
+  {
+    id: 2,
+    name: "Ms. Sousan Kalousdian",
+    image: "maria_montessori.jpg",
+    text:
+      "Sousan has been working with children as a teacher since 1998. Originally from Syria and her background is Armenian. She has been in Canada for 8 years. She obtained her education from Rim pacific institution and Burnaby continuing Education.\n" +
+      "Sousan is a wife and mother of 3 children.\n" +
+      "She has served on ARS as a member and an ARS Armenian Sunday school teacher, and she is an active member of ARF youth organizations and the church.\n" +
+      "She speaks English, Arabic, Turkish and Armenian.\n" +
+      "Sousan loves to travel, swim, walk and enjoy the company of her friends. She loves to be creative and explore art",
+  },
+];
+---
+
+<section id="testimonials" class="py-20 lg:py-[120px]">
+  <div class="container mx-auto">
+    <div class="relative flex flex-col justify-center gap-5">
+      <div class="flex justify-center gap-2">
+        {
+          team.map((item) => (
+            <div class="w-full max-w-sm rounded-lg border-4 border-primary bg-tertiary p-5 shadow">
+              <div class="flex flex-col items-center pb-10">
+                <img
+                  class="mb-3 size-24 rounded-full object-cover shadow-lg"
+                  src={`/${item.image}`}
+                  alt="Bonnie image"
+                />
+                <h5 class="mb-1 text-xl font-bold text-secondary">
+                  {item.name}
+                </h5>
+                <div class="max-h-52 overflow-scroll p-5">{item.text}</div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="flex items-center justify-center gap-5">
+        <button
+          class="mr-4 flex size-[60px] items-center justify-center rounded-full border bg-white transition-all hover:border-primary hover:bg-tertiary"
+        >
+          <Icon name="arrowleft" size={32} />
+        </button>
+        <button
+          class="flex size-[60px] items-center justify-center rounded-full border bg-white transition-all hover:border-primary hover:bg-tertiary"
+        >
+          <Icon name="arrowright" size={32} />
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
