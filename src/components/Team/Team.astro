@@ -1,0 +1,61 @@
+---
+import Section from "../Section.astro";
+import { IDS } from "../helpers/constants";
+
+const team = [
+  {
+    name: "Ms. Mari Minasyan",
+    image: "maria_montessori.jpg",
+    text:
+      "Mari Minasyan will be the licensee . She has over 27 years experience working with children and in the childcare profession. She is Early Childhood Educator Certified, as well as having Special Needs and InfantToddler Certifications, in addition to her Montessori Diploma. Mari is also an instructor at Sprott Shaw College teaching basic Early Childhood Education.\n" +
+      "Mari Minasyan is an active member of the Armenian Relief Society. She also volunteers her time in the Armenian church, teaching the language to young children and assisting many newcomer families sponsored through the Armenian church. Mari is fluent in English, Arabic, Armenian, Turkish.\n" +
+      "Mari was extensively involved in designing, furnishing, implementing policies and regulations for the facility at Rainbow’s Nest Child Care. Ms. Minasyan is\n" +
+      "quite adept at center Management, program planning, staffing schedules, administrative duties, ensuring the childcare facility adheres to licensing Regulations.",
+  },
+  { name: "testing", image: "", text: "" },
+  {
+    name: "Ms. Sousan Kalousdian",
+    image: "maria_montessori.jpg",
+    text:
+      "Sousan has been working with children as a teacher since 1998. Originally from Syria and her background is Armenian. She has been in Canada for 8 years. She obtained her education from Rim pacific institution and Burnaby continuing Education.\n" +
+      "Sousan is a wife and mother of 3 children.\n" +
+      "She has served on ARS as a member and an ARS Armenian Sunday school teacher, and she is an active member of ARF youth organizations and the church.\n" +
+      "She speaks English, Arabic, Turkish and Armenian.\n" +
+      "Sousan loves to travel, swim, walk and enjoy the company of her friends. She loves to be creative and explore art",
+  },
+];
+---
+
+<Section header="Team" id={IDS.team}>
+  <div
+    class="mt-10 flex cursor-grab flex-col items-center justify-between gap-2 lg:flex-row"
+  >
+    {
+      team.map((item) => {
+        if (item.name === "testing") {
+          return (
+            <img
+              src="/play.jpg"
+              alt="team"
+              class="w-1/2 object-cover lg:w-1/3"
+            />
+          );
+        }
+
+        return (
+          <div class="w-full max-w-sm rounded-lg border-4 border-primary bg-tertiary p-5 shadow">
+            <div class="flex flex-col items-center pb-10">
+              <img
+                class="mb-3 size-24 rounded-full object-cover shadow-lg"
+                src={`/${item.image}`}
+                alt="Bonnie image"
+              />
+              <h5 class="mb-1 text-xl font-bold text-secondary">{item.name}</h5>
+              <div class="max-h-72 overflow-scroll p-5">{item.text}</div>
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
+</Section>
