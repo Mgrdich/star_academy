@@ -5,9 +5,23 @@ import { IDS } from "../helpers/constants";
 ---
 
 <Section header="Fees" id={IDS.fees}>
-  <div class="mx-auto mb-12 w-2/3 text-center text-xl">
-    We are dedicated to preparing our students for a journey of lifelong
-    learning . We consider it a privilege to play a role in your child’s life
+  <div class="flex flex-col gap-12">
+    <p class="mx-auto w-2/3 text-center text-xl">
+      We are dedicated to preparing our students for a journey of lifelong
+      learning . We consider it a privilege to play a role in your child’s life
+    </p>
+    <FeesTable />
+    <p class="mx-auto w-2/3 text-center text-xl">
+      Government subsidy is available to those families that are eligible. The
+      subsidy, when received, will either be reimbursed to the family or applied
+      to the following month's tuition fee.
+      <br /><br />
+      It is each parent's responsibility to ensure that the school receives authorizations
+      for new or renewing subsidies on or before the expiry date.
+      <br /><br />
+      NSF will be charged a fee of $35.00 and tuition must be brought up to date
+      within 24 hours. Failure to do so will result in a $5 per day penalty on top
+      of the NSF fee.
+    </p>
   </div>
-  <FeesTable />
 </Section>
