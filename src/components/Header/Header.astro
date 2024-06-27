@@ -70,12 +70,10 @@ const headerItems = [
 
 <script>
   // Select the ul element
-  import * as domain from "domain";
-
   const ulElement = document.getElementById("navigation");
 
   // Add event listener to the ul element to capture clicks on li elements
-  ulElement.addEventListener("pointerup", function (event) {
+  ulElement?.addEventListener("pointerup", function (event) {
     // Check if the clicked element is an li
     event.stopPropagation();
     event.preventDefault();
@@ -84,6 +82,7 @@ const headerItems = [
       event.target &&
       "nodeName" in event.target &&
       "href" in event.target &&
+      typeof event.target.href === "string" &&
       event.target.nodeName === "A"
     ) {
       const id = event.target.href.split("#")[1];
