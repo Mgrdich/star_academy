@@ -15,6 +15,7 @@ const headerItems = [
 ---
 
 <header
+  id="header"
   x-data="{navbarOpen: false}"
   class="sticky left-0 top-0 z-50 w-full bg-white"
 >
@@ -53,7 +54,7 @@ const headerItems = [
             lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:px-0
             lg:shadow-none xl:ml-11"
           >
-            <ul class="block lg:flex">
+            <ul class="block lg:flex" id="navigation">
               {
                 headerItems.map((item) => (
                   <HeaderElement href={item.href}>{item.label}</HeaderElement>
@@ -66,3 +67,43 @@ const headerItems = [
     </div>
   </div>
 </header>
+
+<script>
+  // Select the ul element
+  import * as domain from "domain";
+
+  const ulElement = document.getElementById("navigation");
+
+  // Add event listener to the ul element to capture clicks on li elements
+  ulElement.addEventListener("pointerup", function (event) {
+    // Check if the clicked element is an li
+    event.stopPropagation();
+    event.preventDefault();
+
+    if (
+      event.target &&
+      "nodeName" in event.target &&
+      "href" in event.target &&
+      event.target.nodeName === "A"
+    ) {
+      const id = event.target.href.split("#")[1];
+
+      if (!id) return;
+      const element = document.getElementById(id);
+
+      if (!element) return;
+
+      const headerElement = document.getElementById("header");
+
+      if (!headerElement) return;
+
+      const startPosition = window.scrollY;
+      const paddingTop = headerElement.offsetHeight;
+      const { top } = element.getBoundingClientRect();
+      const newPosition = top + startPosition - paddingTop;
+      requestAnimationFrame(() => {
+        window.scroll(startPosition, newPosition);
+      });
+    }
+  });
+</script>
