@@ -1,6 +1,7 @@
 ---
 import HeaderElement from "./HeaderElement.astro";
 import { IDS } from "../helpers/constants";
+import { getImageSrc } from "../helpers/utils";
 
 const headerItems = [
   { href: `#${IDS.home}`, label: "Home" },
@@ -21,7 +22,11 @@ const headerItems = [
     <div class="relative -mx-4 flex items-center justify-between">
       <div class="w-44 max-w-full px-4">
         <a href="/" class="block w-full py-5">
-          <img src="/logo.png" alt="logo" class="block w-full" />
+          <img
+            src={getImageSrc("logo.png")}
+            alt="Star Academy of Montessori Logo"
+            class="block w-full"
+          />
         </a>
       </div>
       <div class="px-4">

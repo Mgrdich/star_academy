@@ -1,5 +1,6 @@
 ---
 import Icon from "../AppIcon.astro";
+import { getImageSrc } from "../helpers/utils";
 ---
 
 <figure class="mx-auto max-w-screen-md text-center">
@@ -17,8 +18,8 @@ import Icon from "../AppIcon.astro";
   >
     <img
       class="size-14 rounded-full object-cover"
-      src="/maria_montessori.jpg"
-      alt="profile picture"
+      src={getImageSrc("maria_montessori.jpg")}
+      alt="Maria Montessori profile picture"
     />
     <div
       class="flex items-center divide-x-2 divide-gray-500 rtl:divide-x-reverse"

@@ -1,6 +1,7 @@
 ---
 import Icon from "../AppIcon.astro";
 import { IDS } from "../helpers/constants";
+import { getImageSrc } from "../helpers/utils";
 ---
 
 <section id={IDS.home} class="relative pb-[110px] pt-[120px] lg:pt-[150px]">
@@ -26,8 +27,8 @@ import { IDS } from "../helpers/constants";
         <div class="lg:ml-auto lg:text-right">
           <div class="relative z-10 inline-block pt-11 lg:pt-0">
             <img
-              src="/home.jpg"
-              alt="hero"
+              src={getImageSrc("home.jpg")}
+              alt="Home Section Doodle"
               class="max-w-full rounded-[10px] rounded-tl-[150px] lg:ml-auto"
             />
             <span class="absolute -bottom-8 -left-8 z-[-1]">
