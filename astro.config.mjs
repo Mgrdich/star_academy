@@ -7,4 +7,6 @@ import icon from "astro-icon";
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), alpinejs(), icon()],
+  site: "https://mgrdich.github.io",
+  base: "star_academy",
 });
