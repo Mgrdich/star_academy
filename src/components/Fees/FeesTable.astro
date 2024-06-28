@@ -15,43 +15,45 @@ const body = [
 ];
 ---
 
-<table class="mx-auto">
-  <thead>
-    <tr class="bg-tertiary text-center">
-      {
-        headers.map((item, index) => {
-          let className =
-            "w-1/3 min-w-[160px] border-l border-t border-b border-[#E8E8E8] px-3 py-4 text-lg font-medium lg:px-4 lg:py-7";
-          if (index + 1 === headers.length) {
-            className = `${className} border-r`;
-          }
-          return <th class={className}>{item}</th>;
-        })
-      }
-    </tr>
-  </thead>
-  <tbody>
-    {
-      body.map((tableRow) => (
-        <tr>
-          {tableRow.map((tableData, index) => {
+<div class="w-full overflow-x-auto">
+  <table class="mx-auto">
+    <thead>
+      <tr class="bg-tertiary text-center">
+        {
+          headers.map((item, index) => {
             let className =
-              "border-b border-l border-[#E8E8E8]  px-2 py-5 text-center text-base font-medium";
-
-            if (index % 2 === 0) {
-              className = `${className} bg-white`;
-            } else {
-              className = `${className} bg-[#F3F6FF]`;
-            }
-
-            if (index + 1 === tableRow.length) {
+              "w-1/3 min-w-[160px] border-l border-t border-b border-[#E8E8E8] px-3 py-4 text-lg font-medium lg:px-4 lg:py-7";
+            if (index + 1 === headers.length) {
               className = `${className} border-r`;
             }
+            return <th class={className}>{item}</th>;
+          })
+        }
+      </tr>
+    </thead>
+    <tbody>
+      {
+        body.map((tableRow) => (
+          <tr>
+            {tableRow.map((tableData, index) => {
+              let className =
+                "border-b border-l border-[#E8E8E8]  px-2 py-5 text-center text-base font-medium";
 
-            return <td class={className}>{tableData}</td>;
-          })}
-        </tr>
-      ))
-    }
-  </tbody>
-</table>
+              if (index % 2 === 0) {
+                className = `${className} bg-white`;
+              } else {
+                className = `${className} bg-[#F3F6FF]`;
+              }
+
+              if (index + 1 === tableRow.length) {
+                className = `${className} border-r`;
+              }
+
+              return <td class={className}>{tableData}</td>;
+            })}
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>
