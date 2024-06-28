@@ -65,6 +65,10 @@ const headerItems = [
   document.addEventListener("DOMContentLoaded", function () {
     const navbarToggler = document.getElementById("navbarToggler");
     const navbarCollapse = document.getElementById("navbarCollapse");
+    const navigationItems = document.querySelectorAll("#navigation a");
+
+    if (!navbarToggler) return;
+    if (!navbarCollapse) return;
 
     navbarToggler.addEventListener("click", function () {
       navbarCollapse.classList.toggle("hidden");
@@ -85,7 +89,6 @@ const headerItems = [
       }
     });
 
-    const navigationItems = document.querySelectorAll("#navigation a");
     navigationItems.forEach((item) => {
       item.addEventListener("click", function (event) {
         event.preventDefault(); // Prevent the default anchor click behavior
@@ -93,7 +96,11 @@ const headerItems = [
         navbarToggler.classList.remove("navbarTogglerActive");
 
         let id = null;
-        if ("href" in event.target) {
+        if (
+          event.target &&
+          "href" in event.target &&
+          typeof event.target.href === "string"
+        ) {
           id = event.target.href.split("#")[1];
         }
         if (!id) return;
