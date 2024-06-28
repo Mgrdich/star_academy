@@ -14,11 +14,7 @@ const headerItems = [
 ] as const;
 ---
 
-<header
-  id="header"
-  x-data="{navbarOpen: false}"
-  class="sticky left-0 top-0 z-50 w-full bg-white"
->
+<header id="header" class="sticky left-0 top-0 z-50 w-full bg-white">
   <div class="container mx-auto">
     <div class="relative -mx-4 flex items-center justify-between">
       <div class="w-44 max-w-full px-4">
@@ -33,8 +29,6 @@ const headerItems = [
       <div class="px-4">
         <div>
           <button
-            @click="navbarOpen = !navbarOpen"
-            :class="navbarOpen && 'navbarTogglerActive'"
             id="navbarToggler"
             class="absolute right-4 top-1/2 block -translate-y-1/2 rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden"
           >
@@ -46,15 +40,14 @@ const headerItems = [
             ></span>
           </button>
           <nav
-            x-transition=""
-            :class="!navbarOpen && 'hidden'"
             id="navbarCollapse"
-            class="absolute right-4 top-full w-full max-w-[350px]
-            rounded-lg bg-white px-6 py-5 shadow transition-all lg:static
-            lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:px-0
-            lg:shadow-none xl:ml-11"
+            class="absolute right-4 top-full hidden w-full
+            max-w-[350px] rounded-lg bg-white px-6 py-5 shadow transition-all
+            lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent
+            lg:px-0 lg:shadow-none xl:ml-11"
           >
             <ul class="block lg:flex" id="navigation">
+              <!-- Render header items here using server-side templating or JavaScript -->
               {
                 headerItems.map((item) => (
                   <HeaderElement href={item.href}>{item.label}</HeaderElement>
@@ -69,40 +62,57 @@ const headerItems = [
 </header>
 
 <script>
-  // Select the ul element
-  const ulElement = document.getElementById("navigation");
+  document.addEventListener("DOMContentLoaded", function () {
+    const navbarToggler = document.getElementById("navbarToggler");
+    const navbarCollapse = document.getElementById("navbarCollapse");
 
-  // Add event listener to the ul element to capture clicks on li elements
-  ulElement?.addEventListener("pointerup", function (event) {
-    // Check if the clicked element is an li
-    event.stopPropagation();
-    event.preventDefault();
+    navbarToggler.addEventListener("click", function () {
+      navbarCollapse.classList.toggle("hidden");
+      navbarToggler.classList.toggle("navbarTogglerActive");
+    });
 
-    if (
-      event.target &&
-      "nodeName" in event.target &&
-      "href" in event.target &&
-      typeof event.target.href === "string" &&
-      event.target.nodeName === "A"
-    ) {
-      const id = event.target.href.split("#")[1];
+    document.addEventListener("click", function (event) {
+      const target = event.target;
 
-      if (!id) return;
-      const element = document.getElementById(id);
+      if (!(target instanceof Node)) return; // Ensure target is a Node
 
-      if (!element) return;
+      const isClickInsideNav =
+        navbarToggler.contains(target) || navbarCollapse.contains(target);
 
-      const headerElement = document.getElementById("header");
+      if (!isClickInsideNav) {
+        navbarCollapse.classList.add("hidden");
+        navbarToggler.classList.remove("navbarTogglerActive");
+      }
+    });
 
-      if (!headerElement) return;
+    const navigationItems = document.querySelectorAll("#navigation a");
+    navigationItems.forEach((item) => {
+      item.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent the default anchor click behavior
+        navbarCollapse.classList.add("hidden");
+        navbarToggler.classList.remove("navbarTogglerActive");
 
-      const startPosition = window.scrollY;
-      const paddingTop = headerElement.offsetHeight;
-      const { top } = element.getBoundingClientRect();
-      const newPosition = top + startPosition - paddingTop;
-      requestAnimationFrame(() => {
-        window.scroll(startPosition, newPosition);
+        let id = null;
+        if ("href" in event.target) {
+          id = event.target.href.split("#")[1];
+        }
+        if (!id) return;
+
+        const element = document.getElementById(id);
+        if (!element) return;
+
+        const headerElement = document.getElementById("header");
+        if (!headerElement) return;
+
+        const startPosition = window.scrollY;
+        const paddingTop = headerElement.offsetHeight;
+        const { top } = element.getBoundingClientRect();
+        const newPosition = top + startPosition - paddingTop;
+
+        requestAnimationFrame(() => {
+          window.scroll(startPosition, newPosition);
+        });
       });
-    }
+    });
   });
 </script>
