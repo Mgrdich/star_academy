@@ -8,7 +8,7 @@ on:
 
 env:
   node_version: "18.17.1"
-  pnpm_version: "9.1.2"
+  pnpm_version: "9.6.0"
 
 jobs:
   lint:
